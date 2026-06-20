@@ -44,22 +44,27 @@ body, html {
 }
 
 .layer__header {
-	z-index: 1; /* Текст прячется за стволами деревьев! */
+	z-index: 1; /* В обычном состоянии текст прячется за стволами деревьев */
 	text-align: center;
 	margin-top: -10vh;
 	transform: translate3d(0, calc(var(--scrollTOP) / 2), 0);
 	will-change: transform;
 	transition: var(--transition);
-
-	/* Свечение из старого проекта */
 	color: #e7e7e0;
 	text-shadow: 0 0 15px #9e7d35;
+}
+
+/* НОВОЕ ПРАВИЛО: Прыжок на передний план при наведении */
+.layer__header:hover {
+	z-index: 10; /* Временно перекрываем вообще все слои леса (z-index 2 и 3) */
 }
 
 .layers__middle {
 	background-image: url('../img/layer-middle.png');
 	z-index: 2; /* Стволы перекрывают текст */
 	transform: translate3d(0, calc(var(--scrollTOP) / 2.5), 0);
+	pointer-events: none; /* НОВОЕ: мышка проходит сквозь прозрачные пиксели */
+
 }
 
 .layers__front {
@@ -67,6 +72,8 @@ body, html {
 	z-index: 3;
 	background-position: bottom;
 	transform: translate3d(0, calc(var(--scrollTOP) / 5.7), 0);
+	pointer-events: none; /* НОВОЕ: мышка проходит сквозь передние кусты */
+
 }
 
 .layers__title {
@@ -115,4 +122,28 @@ body, html {
 	background-size: cover;
 	background-position: top center;
 	z-index: 11;
+}
+
+/* ==========================================
+   Светлячки (Волшебный Лес)
+   ========================================== */
+.fireflies-container {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 1; /* Находятся над дальним фоном, но под деревьями среднего плана */
+	pointer-events: none; /* Пропускают клики сквозь себя, чтобы работала кнопка */
+	overflow: hidden;
+}
+
+.firefly {
+	position: absolute;
+	width: 3px;
+	height: 3px;
+	background-color: #eaff00; /* Яркое ядро светлячка */
+	border-radius: 50%;
+	box-shadow: 0 0 8px 2px #eaff00, 0 0 15px #eaff00; /* Неоновое свечение */
+	opacity: 0; /* Прозрачные до запуска GSAP-анимации */
 }

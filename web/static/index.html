@@ -18,9 +18,14 @@
 		<header class="main-header">
 			<div class="layer layer__base" id="layer-base"></div>
 
+			<!-- НОВОЕ: Контейнер для светлячков -->
+			<div class="fireflies-container"></div>
+
 			<div class="layer__header" id="hero-text">
 				<h1 class="layers__title">FAIRY FOREST</h1>
-				<p class="layers__caption">Тайная Локация</p>
+				<a href="/login" class="layers__caption inline-block mt-4 px-8 py-3 rounded-full border border-transparent transition-all duration-300 hover:bg-emerald-500/20 hover:border-emerald-400 hover:backdrop-blur-md hover:shadow-[0_0_25px_rgba(16,185,129,0.6)] hover:scale-105 cursor-pointer" style="text-decoration: none;">
+					Вход в зачарованную чащу
+				</a>
 			</div>
 
 			<div class="layer layers__middle" id="layer-middle"></div>
@@ -49,17 +54,31 @@
 				<div>
 					<h2 class="text-3xl font-bold text-blue-400 mb-8 tracking-wide">Древо Жизни (Связи)</h2>
 					<div class="bg-[#0b1420] p-8 rounded-2xl border border-slate-800 font-mono text-sm sm:text-base shadow-2xl">
+<!--						<div class="flex justify-between items-center border-b border-slate-800/80 py-4">-->
+<!--							<span class="text-slate-400">Протокол маскировки: <span class="text-slate-200">Hysteria 2 [UDP]</span></span>-->
+<!--							<span class="text-emerald-500 flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse shadow-[0_0_10px_#10b981]"></span> Активен</span>-->
+<!--						</div>-->
+<!--						<div class="flex justify-between items-center border-b border-slate-800/80 py-4">-->
+<!--							<span class="text-slate-400">Веб-интерфейс: <span class="text-slate-200">NaiveProxy [TCP]</span></span>-->
+<!--							<span class="text-emerald-500 flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse shadow-[0_0_10px_#10b981]"></span> Активен</span>-->
+<!--						</div>-->
+
+						<!-- Динамический статус D&D -->
 						<div class="flex justify-between items-center border-b border-slate-800/80 py-4">
-							<span class="text-slate-400">Протокол маскировки: <span class="text-slate-200">Hysteria 2 [UDP]</span></span>
-							<span class="text-emerald-500 flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse shadow-[0_0_10px_#10b981]"></span> Активен</span>
-						</div>
-						<div class="flex justify-between items-center border-b border-slate-800/80 py-4">
-							<span class="text-slate-400">Веб-интерфейс: <span class="text-slate-200">NaiveProxy [TCP]</span></span>
-							<span class="text-emerald-500 flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse shadow-[0_0_10px_#10b981]"></span> Активен</span>
-						</div>
-						<div class="flex justify-between items-center py-4">
 							<span class="text-slate-400">Врата Миров: <span class="text-slate-200">Foundry VTT</span></span>
-							<span class="text-slate-600 flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full bg-slate-600"></span> Сон</span>
+							<span id="dnd-status" class="text-slate-600 flex items-center gap-2 transition-all duration-500">
+                <span class="w-2.5 h-2.5 rounded-full bg-slate-600 indicator transition-all duration-500"></span>
+                <span class="text">Проверка...</span>
+            </span>
+						</div>
+
+						<!-- Динамический статус Minecraft -->
+						<div class="flex justify-between items-center py-4">
+							<span class="text-slate-400">Пещера Шахтёра: <span class="text-slate-200">Minecraft</span></span>
+							<span id="mc-status" class="text-slate-600 flex items-center gap-2 transition-all duration-500">
+                <span class="w-2.5 h-2.5 rounded-full bg-slate-600 indicator transition-all duration-500"></span>
+                <span class="text">Проверка...</span>
+            </span>
 						</div>
 					</div>
 				</div>
