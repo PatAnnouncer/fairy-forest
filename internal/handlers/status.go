@@ -3,18 +3,29 @@ package handlers
 import (
 	"encoding/json"
 	"net/http"
-
+	"os"
 	"parallax-scrolling/internal/models"
 	"parallax-scrolling/internal/services"
 )
 
-// StatusHandler handles the /api/status endpoint
 func StatusHandler(w http.ResponseWriter, r *http.Request) {
-	// ==========================================
-	// ВНИМАНИЕ: ЗАМЕНИ НА СВОИ IP И ПОРТЫ!
-	// ==========================================
-	mcStatus := services.CheckPort("8.8.8.8", "25565")  // Пример IP и порта для Minecraft
-	dndStatus := services.CheckPort("8.8.8.8", "30100") // Пример IP и порта для D&D / Foundry VTT
+	// Считываем IP-адреса и порты из переменных окружения
+	mcIP := os.Getenv("MC_IP")
+	mcPort := os.Getenv("MC_PORT")
+	dndIP := os.Getenv("DND_IP")
+	dndPort := os.Getenv("DND_PORT")
+
+	// Устанавливаем дефолтные порты на случай, если в настройках они не будут указаны
+	if mcPort == "" {
+		mcPort = "25565"
+	}
+	if dndPort == "" {
+		dndPort = "30100"
+	}
+
+	// Проверяем статусы
+	mcStatus := services.CheckPort(mcIP, mcPort)
+	dndStatus := services.CheckPort(dndIP, dndPort)
 
 	status := models.ServerStatus{
 		Minecraft: mcStatus,

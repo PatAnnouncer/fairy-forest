@@ -50,30 +50,30 @@
 
 		/* Задаем пути к твоим картинкам. Градиенты сработают как заглушка, если картинок еще нет */
 		.layer__base {
-			background-image: url('img/layer-base.png'), linear-gradient(to bottom, #020617, #0f172a);
-			z-index: 1;
-		}
-
-		.layers__middle {
-			background-image: url('img/layer-middle.png'), radial-gradient(circle at center, transparent 30%, #0f172a 100%);
-			z-index: 2;
-		}
-
-		.layers__front {
-			background-image: url('img/layer-front.png'), linear-gradient(to top, #070f17 10%, transparent 50%);
-			z-index: 3;
-			background-position: bottom;
+			background-image: url('img/layer-base.png');
+			z-index: 1; /* Самый задний план */
 		}
 
 		.layer__header {
-			z-index: 4;
+			z-index: 2; /* Текст между фоном и деревьями */
 			text-align: center;
 			text-shadow: 0 4px 20px rgba(0,0,0,0.8);
 			margin-top: -10vh;
 		}
 
+		.layers__middle {
+			background-image: url('img/layer-middle.png');
+			z-index: 3; /* Стволы перекрывают текст */
+		}
+
+		.layers__front {
+			background-image: url('img/layer-front.png');
+			z-index: 4; /* Кусты перекрывают вообще всё */
+			background-position: bottom;
+		}
+
 		.layers__title {
-			font-size: clamp(3rem, 8vw, 6rem);
+			font-size: clamp(3rem, 	8vw, 6rem);
 			font-weight: 900;
 			letter-spacing: 0.1em;
 			color: #fff;
@@ -129,13 +129,20 @@
 
 <!-- Вход в Лес (Параллакс) -->
 <header class="main-header">
+	<!-- Слой 1 (z-index: 1): Самый дальний фон, на котором нарисованы паутины и светлячки -->
 	<div class="layer layer__base" id="layer-base"></div>
-	<div class="layer layers__middle" id="layer-middle"></div>
-	<div class="layer layers__front" id="layer-front"></div>
+
+	<!-- Слой 2 (z-index: 2): Текст. Он находится ПОВЕРХ паутин, его отлично видно -->
 	<div class="layer__header" id="hero-text">
 		<h1 class="layers__title">FAIRY FOREST</h1>
 		<p class="layers__caption">Тайная Локация</p>
 	</div>
+
+	<!-- Слой 3 (z-index: 3): Темные стволы деревьев. При скролле они будут наезжать на текст -->
+	<div class="layer layers__middle" id="layer-middle"></div>
+
+	<!-- Слой 4 (z-index: 4): Самый передний план с кустами -->
+	<div class="layer layers__front" id="layer-front"></div>
 </header>
 
 <!-- Чаща леса (Заметки и Статус) -->
@@ -236,7 +243,7 @@
 	// Заголовок плавно уходит вверх и растворяется
 	gsap.to("#hero-text", {
 		yPercent: 80,
-		opacity: 0,
+		opacity: 0, // Эффект затемнения
 		ease: "none",
 		scrollTrigger: {
 			trigger: ".main-header",
