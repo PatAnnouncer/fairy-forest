@@ -1,5 +1,6 @@
 # Среда разработки JetBrains (GoLand, IntelliJ IDEA)
 .idea/
+.env
 *.iml
 
 # Временные бинарные файлы Go
