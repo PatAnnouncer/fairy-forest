@@ -11,3 +11,6 @@
 *.so
 *.dylib
 
+#Платные
+ScrollSmoother.min.js
+
