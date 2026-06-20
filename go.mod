@@ -1,3 +1,3 @@
 module parallax-scrolling
 
-go 1.24.11
+go 1.22
