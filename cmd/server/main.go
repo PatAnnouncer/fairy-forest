@@ -22,5 +22,3 @@ func main() {
 		fmt.Println("Ошибка:", err)
 	}
 }
-
-//test
