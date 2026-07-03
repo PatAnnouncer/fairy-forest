@@ -2,10 +2,10 @@ package handlers
 
 import (
 	"encoding/json"
+	"fairy-forest/internal/models"
+	"fairy-forest/internal/services"
 	"net/http"
 	"os"
-	"parallax-scrolling/internal/models"
-	"parallax-scrolling/internal/services"
 )
 
 func StatusHandler(w http.ResponseWriter, r *http.Request) {

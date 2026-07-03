@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"net/http"
 
-	"parallax-scrolling/internal/handlers"
+	"fairy-forest/internal/handlers"
 )
 
 func main() {

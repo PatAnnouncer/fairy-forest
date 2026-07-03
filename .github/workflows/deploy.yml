@@ -19,14 +19,14 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
             # Переходим в папку с проектом
-            cd /root/parallax-scrolling-website
-            
+            cd /root/fairy-forest
+
             # Подтягиваем свежий код из GitHub
             git pull origin main
-            
+
             # Компилируем новый бинарник Go
             /usr/local/go/bin/go build -o cmd/server/mywebsite cmd/server/main.go || go build -o cmd/server/mywebsite cmd/server/main.go
 
-            
+
             # Перезапускаем системную службу
             systemctl restart mysite.service

@@ -1,3 +1,3 @@
-module parallax-scrolling
+module fairy-forest
 
 go 1.22

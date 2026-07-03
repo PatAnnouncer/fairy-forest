@@ -1,5 +1,5 @@
 {
-  "name": "parallax-scrolling-website",
+  "name": "fairy-forest",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,15 +8,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/PatAnnouncer/parallax-scrolling-website.git"
+    "url": "git+https://github.com/PatAnnouncer/fairy-forest"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/PatAnnouncer/parallax-scrolling-website/issues"
+    "url": "https://github.com/PatAnnouncer/fairy-forest/issues"
   },
-  "homepage": "https://github.com/PatAnnouncer/parallax-scrolling-website#readme",
+  "homepage": "https://github.com/PatAnnouncer/fairy-forest#readme",
   "devDependencies": {
     "tailwindcss": "^3.4.19"
   }
