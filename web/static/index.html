@@ -1,109 +1,182 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Fairy Forest | My Realm</title>
-	<!-- Tailwind CSS -->
-	<link rel="stylesheet" href="css/tailwind.css">
-	<link rel="stylesheet" href="css/main.css">
-</head>
-<body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Fairy Forest</title>
+        <!-- Tailwind CSS -->
+        <link rel="stylesheet" href="css/tailwind.css" />
+        <link rel="stylesheet" href="css/main.css" />
+    </head>
+    <body>
+        <!-- Обертка для работы ScrollSmoother -->
+        <div id="smooth-wrapper">
+            <div id="smooth-content">
+                <!-- Вход в Лес (Параллакс) -->
+                <header class="main-header">
+                    <div class="layer layer__base" id="layer-base"></div>
 
-<!-- Обертка для работы ScrollSmoother -->
-<div id="smooth-wrapper">
-	<div id="smooth-content">
+                    <!-- НОВОЕ: Контейнер для светлячков -->
+                    <div class="fireflies-container"></div>
 
-		<!-- Вход в Лес (Параллакс) -->
-		<header class="main-header">
-			<div class="layer layer__base" id="layer-base"></div>
+                    <div class="layer__header" id="hero-text">
+                        <h1 class="layers__title">FAIRY FOREST</h1>
+                        <a
+                            href="/login"
+                            class="layers__caption inline-block mt-4 px-8 py-3 rounded-full border border-transparent transition-all duration-300 hover:bg-emerald-500/20 hover:border-emerald-400 hover:backdrop-blur-md hover:shadow-[0_0_25px_rgba(16,185,129,0.6)] hover:scale-105 cursor-pointer"
+                            style="text-decoration: none"
+                        >
+                            Вход в зaчарованную чащу
+                        </a>
+                    </div>
 
-			<!-- НОВОЕ: Контейнер для светлячков -->
-			<div class="fireflies-container"></div>
+                    <div class="layer layers__middle" id="layer-middle"></div>
+                    <div class="layer layers__front" id="layer-front"></div>
+                </header>
 
-			<div class="layer__header" id="hero-text">
-				<h1 class="layers__title">FAIRY FOREST</h1>
-				<a href="/login" class="layers__caption inline-block mt-4 px-8 py-3 rounded-full border border-transparent transition-all duration-300 hover:bg-emerald-500/20 hover:border-emerald-400 hover:backdrop-blur-md hover:shadow-[0_0_25px_rgba(16,185,129,0.6)] hover:scale-105 cursor-pointer" style="text-decoration: none;">
-					Вход в зачарованную чащу
-				</a>
-			</div>
+                <!-- Чаща леса (Заметки и Статус) -->
+                <article class="main-article py-24 px-4 sm:px-6 lg:px-8">
+                    <div class="max-w-5xl mx-auto space-y-24">
+                        <!-- Бестиарий -->
+                        <div>
+                            <h2
+                                class="text-3xl font-bold text-emerald-400 mb-8 tracking-wide"
+                            >
+                                Бестиарий (Заметки Мастера)
+                            </h2>
+                            <div class="grid md:grid-cols-2 gap-8">
+                                <div
+                                    class="bg-slate-800/40 p-8 rounded-2xl border border-slate-700/50 backdrop-blur-sm transition hover:bg-slate-800/60"
+                                >
+                                    <h3
+                                        class="text-2xl font-bold text-white mb-3"
+                                    >
+                                        Древний Энт
+                                    </h3>
+                                    <p class="text-slate-400 leading-relaxed">
+                                        Огромное древоподобное существо,
+                                        хранитель северной чащи. Пробуждается
+                                        только при звуках рубки леса. Его корни
+                                        уходят в самые глубокие пещеры, связывая
+                                        поверхность с подземельями.
+                                    </p>
+                                </div>
+                                <div
+                                    class="bg-slate-800/40 p-8 rounded-2xl border border-slate-700/50 backdrop-blur-sm transition hover:bg-slate-800/60"
+                                >
+                                    <h3
+                                        class="text-2xl font-bold text-white mb-3"
+                                    >
+                                        Светлячки Пустоты
+                                    </h3>
+                                    <p class="text-slate-400 leading-relaxed">
+                                        Крошечные духи, питающиеся остаточной
+                                        магией. Их появление часто
+                                        свидетельствует о наличии поблизости
+                                        нестабильного портала или скрытого
+                                        туннеля.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
 
-			<div class="layer layers__middle" id="layer-middle"></div>
-			<div class="layer layers__front" id="layer-front"></div>
-		</header>
+                        <!-- Древо Жизни (Мониторинг) -->
+                        <div>
+                            <h2
+                                class="text-3xl font-bold text-blue-400 mb-8 tracking-wide"
+                            >
+                                Древо Жизни (Связи)
+                            </h2>
+                            <div
+                                class="bg-[#0b1420] p-8 rounded-2xl border border-slate-800 font-mono text-sm sm:text-base shadow-2xl"
+                            >
+                                <!--						<div class="flex justify-between items-center border-b border-slate-800/80 py-4">-->
+                                <!--							<span class="text-slate-400">Протокол маскировки: <span class="text-slate-200">Hysteria 2 [UDP]</span></span>-->
+                                <!--							<span class="text-emerald-500 flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse shadow-[0_0_10px_#10b981]"></span> Активен</span>-->
+                                <!--						</div>-->
+                                <!--						<div class="flex justify-between items-center border-b border-slate-800/80 py-4">-->
+                                <!--							<span class="text-slate-400">Веб-интерфейс: <span class="text-slate-200">NaiveProxy [TCP]</span></span>-->
+                                <!--							<span class="text-emerald-500 flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse shadow-[0_0_10px_#10b981]"></span> Активен</span>-->
+                                <!--						</div>-->
 
-		<!-- Чаща леса (Заметки и Статус) -->
-		<article class="main-article py-24 px-4 sm:px-6 lg:px-8">
-			<div class="max-w-5xl mx-auto space-y-24">
-				<!-- Бестиарий -->
-				<div>
-					<h2 class="text-3xl font-bold text-emerald-400 mb-8 tracking-wide">Бестиарий (Заметки Мастера)</h2>
-					<div class="grid md:grid-cols-2 gap-8">
-						<div class="bg-slate-800/40 p-8 rounded-2xl border border-slate-700/50 backdrop-blur-sm transition hover:bg-slate-800/60">
-							<h3 class="text-2xl font-bold text-white mb-3">Древний Энт</h3>
-							<p class="text-slate-400 leading-relaxed">Огромное древоподобное существо, хранитель северной чащи. Пробуждается только при звуках рубки леса. Его корни уходят в самые глубокие пещеры, связывая поверхность с подземельями.</p>
-						</div>
-						<div class="bg-slate-800/40 p-8 rounded-2xl border border-slate-700/50 backdrop-blur-sm transition hover:bg-slate-800/60">
-							<h3 class="text-2xl font-bold text-white mb-3">Светлячки Пустоты</h3>
-							<p class="text-slate-400 leading-relaxed">Крошечные духи, питающиеся остаточной магией. Их появление часто свидетельствует о наличии поблизости нестабильного портала или скрытого туннеля.</p>
-						</div>
-					</div>
-				</div>
+                                <!-- Динамический статус D&D -->
+                                <div
+                                    class="flex justify-between items-center border-b border-slate-800/80 py-4"
+                                >
+                                    <span class="text-slate-400"
+                                        >Врата Миров:
+                                        <span class="text-slate-200"
+                                            >Foundry VTT</span
+                                        ></span
+                                    >
+                                    <span
+                                        id="dnd-status"
+                                        class="text-slate-600 flex items-center gap-2 transition-all duration-500"
+                                    >
+                                        <span
+                                            class="w-2.5 h-2.5 rounded-full bg-slate-600 indicator transition-all duration-500"
+                                        ></span>
+                                        <span class="text">Проверка...</span>
+                                    </span>
+                                </div>
 
-				<!-- Древо Жизни (Мониторинг) -->
-				<div>
-					<h2 class="text-3xl font-bold text-blue-400 mb-8 tracking-wide">Древо Жизни (Связи)</h2>
-					<div class="bg-[#0b1420] p-8 rounded-2xl border border-slate-800 font-mono text-sm sm:text-base shadow-2xl">
-<!--						<div class="flex justify-between items-center border-b border-slate-800/80 py-4">-->
-<!--							<span class="text-slate-400">Протокол маскировки: <span class="text-slate-200">Hysteria 2 [UDP]</span></span>-->
-<!--							<span class="text-emerald-500 flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse shadow-[0_0_10px_#10b981]"></span> Активен</span>-->
-<!--						</div>-->
-<!--						<div class="flex justify-between items-center border-b border-slate-800/80 py-4">-->
-<!--							<span class="text-slate-400">Веб-интерфейс: <span class="text-slate-200">NaiveProxy [TCP]</span></span>-->
-<!--							<span class="text-emerald-500 flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse shadow-[0_0_10px_#10b981]"></span> Активен</span>-->
-<!--						</div>-->
+                                <!-- Динамический статус Minecraft -->
+                                <div
+                                    class="flex justify-between items-center py-4"
+                                >
+                                    <span class="text-slate-400"
+                                        >Пещера Шахтёра:
+                                        <span class="text-slate-200"
+                                            >Minecraft</span
+                                        ></span
+                                    >
+                                    <span
+                                        id="mc-status"
+                                        class="text-slate-600 flex items-center gap-2 transition-all duration-500"
+                                    >
+                                        <span
+                                            class="w-2.5 h-2.5 rounded-full bg-slate-600 indicator transition-all duration-500"
+                                        ></span>
+                                        <span class="text">Проверка...</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
 
-						<!-- Динамический статус D&D -->
-						<div class="flex justify-between items-center border-b border-slate-800/80 py-4">
-							<span class="text-slate-400">Врата Миров: <span class="text-slate-200">Foundry VTT</span></span>
-							<span id="dnd-status" class="text-slate-600 flex items-center gap-2 transition-all duration-500">
-                <span class="w-2.5 h-2.5 rounded-full bg-slate-600 indicator transition-all duration-500"></span>
-                <span class="text">Проверка...</span>
-            </span>
-						</div>
+                <!-- Пещера Гномов (Подземелье) -->
+                <section class="dungeon-section">
+                    <div
+                        class="text-center z-20 px-4 bg-black/30 p-10 rounded-3xl backdrop-blur-sm border border-white/5"
+                    >
+                        <h2
+                            class="text-4xl md:text-5xl font-black text-amber-500 mb-6 tracking-wider"
+                        >
+                            Арсенал Артефактов
+                        </h2>
+                        <p
+                            class="text-lg md:text-xl text-slate-300 max-w-2xl mx-auto"
+                        >
+                            Здесь, в глубоких пещерах под корнями Древа, куются
+                            кастомные механические клавиатуры и пишется бэкенд
+                            на Go.
+                        </p>
+                        <button
+                            class="mt-8 px-8 py-3 bg-amber-600 hover:bg-amber-500 text-white font-bold rounded-full transition-colors duration-300 shadow-[0_0_15px_rgba(217,119,6,0.5)]"
+                        >
+                            Исследовать глубины
+                        </button>
+                    </div>
+                    <div class="ground-layer"></div>
+                </section>
+            </div>
+        </div>
 
-						<!-- Динамический статус Minecraft -->
-						<div class="flex justify-between items-center py-4">
-							<span class="text-slate-400">Пещера Шахтёра: <span class="text-slate-200">Minecraft</span></span>
-							<span id="mc-status" class="text-slate-600 flex items-center gap-2 transition-all duration-500">
-                <span class="w-2.5 h-2.5 rounded-full bg-slate-600 indicator transition-all duration-500"></span>
-                <span class="text">Проверка...</span>
-            </span>
-						</div>
-					</div>
-				</div>
-			</div>
-		</article>
-
-		<!-- Пещера Гномов (Подземелье) -->
-		<section class="dungeon-section">
-			<div class="text-center z-20 px-4 bg-black/30 p-10 rounded-3xl backdrop-blur-sm border border-white/5">
-				<h2 class="text-4xl md:text-5xl font-black text-amber-500 mb-6 tracking-wider">Арсенал Артефактов</h2>
-				<p class="text-lg md:text-xl text-slate-300 max-w-2xl mx-auto">Здесь, в глубоких пещерах под корнями Древа, куются кастомные механические клавиатуры и пишется бэкенд на Go.</p>
-				<button class="mt-8 px-8 py-3 bg-amber-600 hover:bg-amber-500 text-white font-bold rounded-full transition-colors duration-300 shadow-[0_0_15px_rgba(217,119,6,0.5)]">
-					Исследовать глубины
-				</button>
-			</div>
-			<div class="ground-layer"></div>
-		</section>
-
-	</div>
-</div>
-
-<!-- ПОДКЛЮЧЕНИЕ JS-МОДУЛЕЙ ИЗ ТВОЕЙ СТРУКТУРЫ -->
-<script src="libs/gsap/gsap.min.js"></script>
-<script src="libs/gsap/ScrollTrigger.min.js"></script>
-<script src="libs/gsap/ScrollSmoother.min.js"></script>
-<script src="js/app.js"></script>
-</body>
+        <!-- ПОДКЛЮЧЕНИЕ JS-МОДУЛЕЙ ИЗ ТВОЕЙ СТРУКТУРЫ -->
+        <script src="libs/gsap/gsap.min.js"></script>
+        <script src="libs/gsap/ScrollTrigger.min.js"></script>
+        <script src="libs/gsap/ScrollSmoother.min.js"></script>
+        <script src="js/app.js"></script>
+    </body>
 </html>
